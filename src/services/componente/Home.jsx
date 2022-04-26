@@ -4,8 +4,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {/* <label htmlFor=''>
-          <input id=''/>
+        {/* <label htmlFor="InputBusca">
+          <input
+            id="InputBusca"
+            type="text"
+          />
         </label> */}
 
         <p data-testid="home-initial-message">
