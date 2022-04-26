@@ -1,5 +1,5 @@
 export async function getCategories() {
-  // Implemente aqui - iniciando o projeto
+  // Implemente aqui - iniciando o projeto teste 2
 }
 
 export async function getProductsFromCategoryAndQuery(/* categoryId, query */) {
