@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import carrinho from '../imagens/carrinho.svg';
 import { Link } from 'react-router-dom';
+import carrinho from '../imagens/carrinho.svg';
 import './Home.css';
 
 class Home extends Component {
