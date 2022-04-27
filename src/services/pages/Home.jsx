@@ -54,7 +54,7 @@ class Home extends Component {
   }
 
   render() {
-    const { categoryId, produtos, query, arrayVazio } = this.state;
+    const { produtos, query, arrayVazio } = this.state;
     return (
       <div>
         <form>
