@@ -1,0 +1,4 @@
+.list-caregories {
+  display: flex;
+  flex-direction: column;
+}
