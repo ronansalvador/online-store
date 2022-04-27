@@ -12,6 +12,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={ Home } />
             <Route path="/carrinho" component={ Carrinho } />
+            <Route path="/detalhes/:id" component={ Details } />
           </Switch>
         </div>
       </BrowserRouter>
