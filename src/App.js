@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Carrinho from './services/pages/Carrinho';
 import Home from './services/pages/Home';
+import Details from './services/pages/Details';
 import './App.css';
 
 class App extends Component {
