@@ -14,7 +14,6 @@ class Details extends Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const detalhes = await getProductDetails(id);
-    console.log(detalhes);
     this.setState({ detalhes });
   }
 

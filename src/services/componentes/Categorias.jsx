@@ -11,11 +11,11 @@ class Categorias extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount() { // ao iniciar a pagina executa a função listCategories
     this.listCategories();
   }
 
-  listCategories = async () => {
+  listCategories = async () => { // executa a função getCategories e armazena as categorias no estado.
     const categorias = await getCategories();
     this.setState({
       categorias,

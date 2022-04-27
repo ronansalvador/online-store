@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Categorias from '../componentes/Categorias';
 import Produtos from '../componentes/Produtos';
@@ -25,7 +26,6 @@ class Home extends Component {
   }
 
   getCategoryId = (id) => { // recebe um id como parametro, salva no estado e executa a função getProdutos
-    console.log(id);
     this.setState({
       categoryId: id,
     }, () => {
@@ -40,12 +40,14 @@ class Home extends Component {
 
   getProdutos = async () => { // consome a função da API ppara buscar proditos de acordo com categoriaID e/ou query.
     const { categoryId, query } = this.state;
+    const { setProducts } = this.props;
     const products = await getProductsFromCategoryAndQuery(categoryId, query);
     if (products.results.length === 0) { // caso a API retorna um array vazio -> arrayVazio: true
       this.setState({
         arrayVazio: true,
       });
     } else { // se não, armazena os produtos no estado e arrayVazio: false
+      setProducts(products.results);
       this.setState({
         arrayVazio: false,
         produtos: products.results,
@@ -53,8 +55,19 @@ class Home extends Component {
     }
   }
 
+  /*   addToCart = (id) => {
+    const { produtos } = this.state;
+    const addproduct = produtos.find((produto) => produto.id === id);
+    console.log(addproduct);
+    this.setState((prevState) => ({
+      cart: [...prevState.cart, addproduct],
+    }));
+  } */
+  // ({ target }) => console.log(target.id)
+
   render() {
     const { produtos, query, arrayVazio } = this.state;
+    const { addToCart, cart } = this.props;
     return (
       <div>
         <form>
@@ -84,6 +97,7 @@ class Home extends Component {
             alt="Imagem carrinho de compras"
           />
         </Link>
+        <p>{ cart.length }</p>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
@@ -95,6 +109,7 @@ class Home extends Component {
           : (
             <Produtos
               produtos={ produtos }
+              addToCart={ addToCart }
             />
           )}
 
@@ -102,5 +117,11 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+  setProducts: PropTypes.func.isRequired,
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Home;
