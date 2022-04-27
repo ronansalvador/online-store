@@ -21,6 +21,12 @@ class Categorias extends Component {
     });
   }
 
+  getId = ({ target }) => {
+    const { RecebeID } = this.props;
+    RecebeID(target.id);
+    console.log(target.id);
+  }
+
   render() {
     const { categorias } = this.state;
     return (
@@ -33,6 +39,7 @@ class Categorias extends Component {
               id={ categoria.id }
               value={ categoria.name }
               name="categorias"
+              onChange={ this.getId }
             />
             {categoria.name}
           </label>
