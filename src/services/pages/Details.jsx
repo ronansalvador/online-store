@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../api';
+// Comentario
 
 class Details extends Component {
   constructor() {
