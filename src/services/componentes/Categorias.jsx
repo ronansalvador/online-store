@@ -23,9 +23,8 @@ class Categorias extends Component {
   }
 
   getId = ({ target }) => {
-    const { RecebeID } = this.props;
-    RecebeID(target.id);
-    console.log(target.id);
+    const { RecebeID } = this.props; // função recebida como props do component home RecebeID == getCategoryId
+    RecebeID(target.id); // captura o ID e executa a função RecebiID
   }
 
   render() {
