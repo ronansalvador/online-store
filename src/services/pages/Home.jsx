@@ -17,14 +17,14 @@ class Home extends Component {
     };
   }
 
-  handleInput = ({ target }) => {
+  handleInput = ({ target }) => { // função que captura o valor do input text (item buscado) e salva no estado.
     const { value } = target;
     this.setState({
       query: value,
     });
   }
 
-  getCategoryId = (id) => {
+  getCategoryId = (id) => { // recebe um id como parametro, salva no estado e executa a função getProdutos
     console.log(id);
     this.setState({
       categoryId: id,
@@ -34,18 +34,18 @@ class Home extends Component {
     });
   }
 
-  getQuery = () => {
+  getQuery = () => { // ação do botão do input (value={query}) para executar a renderização dos ptodutos
     this.getProdutos();
   }
 
-  getProdutos = async () => {
+  getProdutos = async () => { // consome a função da API ppara buscar proditos de acordo com categoriaID e/ou query.
     const { categoryId, query } = this.state;
     const products = await getProductsFromCategoryAndQuery(categoryId, query);
-    if (products.results.length === 0) {
+    if (products.results.length === 0) { // caso a API retorna um array vazio -> arrayVazio: true
       this.setState({
         arrayVazio: true,
       });
-    } else {
+    } else { // se não, armazena os produtos no estado e arrayVazio: false
       this.setState({
         arrayVazio: false,
         produtos: products.results,
@@ -88,7 +88,7 @@ class Home extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <Categorias
-          RecebeID={ this.getCategoryId }
+          RecebeID={ this.getCategoryId } // passa a função getCategoryId como props (RecebeID) - para o component Categorias
         />
         {arrayVazio
           ? <p>Nenhum produto foi encontrado</p>
