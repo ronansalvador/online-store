@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Comentarios extends Component {
   render() {
@@ -56,3 +57,7 @@ export default class Comentarios extends Component {
     );
   }
 }
+Comentarios.propTypes = {
+  productId: PropTypes.string.isRequired,
+  avaliation: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
