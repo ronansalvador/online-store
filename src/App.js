@@ -14,7 +14,6 @@ class App extends Component {
     };
   }
 
-
   setProducts = (produtos) => {
     this.setState({
       produtos,
@@ -22,31 +21,39 @@ class App extends Component {
   }
 
   addToCart = (id) => {
-
     const { produtos } = this.state;
     const addproduct = produtos.find((produto) => produto.id === id);
     this.setState((prevState) => ({
       cart: [...prevState.cart, addproduct],
     }));
+    // console.log(this.state.cart);
   }
 
-  removeItem = (id) => {
+  /* removeItem = (id) => {
     const { cart } = this.state;
-    const differentes = cart.filter((item) => item.id !== id)
-    this.setState({cart: differentes})
-    const iguais = cart.filter((item) => item.id === id);
-    console.log(iguais.length);
-    if (iguais.length > 1) {
-      const test = iguais.shift();
-      this.setState((prev) => ({
-        cart: [...prev.cart, test]
-      }));
-    } /* else {
-      this.setState({cart: differentes})
-    } */
-    
-    console.log(differentes);
-    console.log(iguais);
+    const differentes = cart.filter((item) => item.id !== id);
+    this.setState({ cart: differentes });
+  } */
+
+  removeAllItens = (id) => { // função que remove do carrinho todos os itens do produto ao clicar no "X"
+    const { cart } = this.state;
+    const differentes = cart.filter((item) => item.id !== id);
+    this.setState({
+      cart: differentes,
+    });
+  }
+
+  removeItem = (id) => { // função que remove do carrinho 1 qtd do produto ao clicar no "-"
+    const { cart } = this.state;
+    const differentes = cart.filter((item) => item.id !== id);
+    this.setState({
+      cart: differentes,
+    });
+    const itemCart = cart.filter((item) => item.id === id);
+    itemCart.splice(0, 1); // splice(0, 1) -> remove 1 elemento do array a partir do indice 0
+    this.setState((prevState) => ({
+      cart: [...prevState.cart, ...itemCart], // spread do estado anterios + spread do array após o splice
+    }));
   }
 
   render() {
@@ -67,7 +74,13 @@ class App extends Component {
             />
             <Route
               path="/carrinho"
-              render={ (props) => <Carrinho { ...props } cart={ cart } addToCart={ this.addToCart} removeItem={this.removeItem} /> }
+              render={ (props) => (<Carrinho
+                { ...props }
+                cart={ cart }
+                addToCart={ this.addToCart }
+                removeItem={ this.removeItem }
+                removeAllItens={ this.removeAllItens }
+              />) }
             />
             <Route
               path="/detalhes/:id"
