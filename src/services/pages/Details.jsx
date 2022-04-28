@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../api';
 import carrinho from '../imagens/carrinho.svg';
+import Avaliacao from '../componentes/Avaliacao';
 
 class Details extends Component {
   constructor() {
@@ -48,6 +49,10 @@ class Details extends Component {
             Adicionar ao carrinho
           </button>
         </div>
+        <Avaliacao
+          productId={ detalhes.id }
+        />
+
       </div>
     );
   }
