@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Carrinho extends Component {
   render() {
-    const { cart } = this.props;
+    const { cart, addToCart, removeItem } = this.props;
     const unitCart = [...new Set(cart)];
     return (
       <div>
@@ -14,11 +14,23 @@ export default class Carrinho extends Component {
               {unitCart.map((produto) => (
                 <div key={ produto.id }>
                   <h3 data-testid="shopping-cart-product-name">{produto.title}</h3>
+                  <button 
+                    data-testid="product-decrease-quantity"
+                    type="button"
+                    onClick={ () => removeItem(produto.id) }
+                  > -
+                  </button>
                   <span
                     data-testid="shopping-cart-product-quantity"
                   >
                     { cart.filter((p) => p.id === produto.id).length }
                   </span>
+                  <button 
+                    type="button" 
+                    data-testid="product-increase-quantity"
+                    onClick={() => addToCart(produto.id)}
+                    > +
+                    </button>
                 </div>
               ))}
             </div>
