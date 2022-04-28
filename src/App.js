@@ -14,6 +14,7 @@ class App extends Component {
     };
   }
 
+
   setProducts = (produtos) => {
     this.setState({
       produtos,
@@ -21,11 +22,31 @@ class App extends Component {
   }
 
   addToCart = (id) => {
+
     const { produtos } = this.state;
     const addproduct = produtos.find((produto) => produto.id === id);
     this.setState((prevState) => ({
       cart: [...prevState.cart, addproduct],
     }));
+  }
+
+  removeItem = (id) => {
+    const { cart } = this.state;
+    const differentes = cart.filter((item) => item.id !== id)
+    this.setState({cart: differentes})
+    const iguais = cart.filter((item) => item.id === id);
+    console.log(iguais.length);
+    if (iguais.length > 1) {
+      const test = iguais.shift();
+      this.setState((prev) => ({
+        cart: [...prev.cart, test]
+      }));
+    } /* else {
+      this.setState({cart: differentes})
+    } */
+    
+    console.log(differentes);
+    console.log(iguais);
   }
 
   render() {
@@ -46,7 +67,7 @@ class App extends Component {
             />
             <Route
               path="/carrinho"
-              render={ (props) => <Carrinho { ...props } cart={ cart } /> }
+              render={ (props) => <Carrinho { ...props } cart={ cart } addToCart={ this.addToCart} removeItem={this.removeItem} /> }
             />
             <Route
               path="/detalhes/:id"
