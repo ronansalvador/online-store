@@ -31,7 +31,7 @@ class Details extends Component {
             alt="Imagem carrinho de compras"
           />
         </Link>
-        <p>{ cart.length }</p>
+        <p data-testid="shopping-cart-size">{ cart.length }</p>
         <div>
           <p data-testid="product-detail-name">
             { detalhes.title }

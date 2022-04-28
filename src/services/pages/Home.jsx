@@ -97,7 +97,7 @@ class Home extends Component {
             alt="Imagem carrinho de compras"
           />
         </Link>
-        <p>{ cart.length }</p>
+        <p data-testid="shopping-cart-size">{ cart.length }</p>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
