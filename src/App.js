@@ -4,6 +4,7 @@ import Carrinho from './services/pages/Carrinho';
 import Home from './services/pages/Home';
 import Details from './services/pages/Details';
 import './App.css';
+import Checkout from './services/pages/Checkout';
 
 class App extends Component {
   constructor() {
@@ -87,6 +88,13 @@ class App extends Component {
               render={ (props) => (<Details
                 { ...props }
                 addToCart={ this.addToCart }
+                cart={ cart }
+              />) }
+            />
+            <Route
+              path="/checkout"
+              render={ (props) => (<Checkout
+                { ...props }
                 cart={ cart }
               />) }
             />
