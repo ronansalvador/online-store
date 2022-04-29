@@ -16,6 +16,11 @@ class Details extends Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const detalhes = await getProductDetails(id);
+    /*  const { shipping } = detalhes;
+    console.log(shipping);
+    if (shipping.free_shipping) {
+      console.log(shipping.free_shipping);
+    } */
     this.setState({ detalhes });
   }
 
@@ -36,6 +41,8 @@ class Details extends Component {
           <p data-testid="product-detail-name">
             { detalhes.title }
           </p>
+          {/* {shipping.free_shipping ?
+            <p data-testid="free-shipping">Frete Gratis</p> : ''} */}
           <img src={ detalhes.thumbnail } alt={ detalhes.title } />
           <p>
             { detalhes.price }

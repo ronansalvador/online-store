@@ -16,6 +16,8 @@ class Produtos extends Component {
             <h3>
               {element.title}
             </h3>
+            {element.shipping.free_shipping
+              && <p data-testid="free-shipping">Frete Gratis</p>}
             <img
               src={ element.thumbnail }
               alt={ `imagem do produto ${element.title}` }
