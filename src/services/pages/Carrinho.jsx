@@ -27,6 +27,7 @@ export default class Carrinho extends Component {
                 <div key={ index }>
                   <div>
                     <h3 data-testid="shopping-cart-product-name">{produto.title}</h3>
+                    <p>{`Quantidade disponibivel: ${produto.available_quantity}`}</p>
                     <button
                       type="button"
                       onClick={ () => removeAllItens(produto.id) }
@@ -48,7 +49,6 @@ export default class Carrinho extends Component {
                   >
                     {/* qnt total do produto no carrinho */}
                     { cart.filter((p) => p.id === produto.id).length }
-                    <p>{`Quantidade disponibivel: ${produto.available_quantity}`}</p>
                   </span>
 
                   <button
