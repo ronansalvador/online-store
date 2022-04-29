@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      cart: [],
+      cart: JSON.parse(localStorage.getItem('carrinho')) || [],
       produtos: [],
     };
   }
@@ -26,8 +26,13 @@ class App extends Component {
     const addproduct = produtos.find((produto) => produto.id === id);
     this.setState((prevState) => ({
       cart: [...prevState.cart, addproduct],
-    }));
+    }), () => this.setLocalStorage());
     // console.log(this.state.cart);
+  }
+
+  setLocalStorage = () => {
+    const { cart } = this.state;
+    localStorage.setItem('carrinho', JSON.stringify(cart));
   }
 
   /* removeItem = (id) => {
