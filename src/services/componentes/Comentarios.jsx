@@ -5,9 +5,9 @@ export default class Comentarios extends Component {
   render() {
     const { productId, avaliation } = this.props;
     const productComents = avaliation.filter((i) => i.productId === productId);
-    console.log(productId);
-    console.log(avaliation);
-    console.log(productComents);
+    // console.log(productId);
+    // console.log(avaliation);
+    // console.log(productComents);
     return (
       <div>
         Comentarios

@@ -152,7 +152,7 @@ getRating = ({ target }) => {
             data-testid="1-rating"
             id="rating1"
             type="radio"
-            onClick={ this.getRating }
+            onChange={ this.getRating }
             checked={ rating1 }
           />
 
@@ -160,7 +160,7 @@ getRating = ({ target }) => {
             data-testid="2-rating"
             id="rating2"
             type="radio"
-            onClick={ this.getRating }
+            onChange={ this.getRating }
             checked={ rating2 }
           />
 
@@ -168,7 +168,7 @@ getRating = ({ target }) => {
             data-testid="3-rating"
             id="rating3"
             type="radio"
-            onClick={ this.getRating }
+            onChange={ this.getRating }
             checked={ rating3 }
           />
 
@@ -176,7 +176,7 @@ getRating = ({ target }) => {
             data-testid="4-rating"
             id="rating4"
             type="radio"
-            onClick={ this.getRating }
+            onChange={ this.getRating }
             checked={ rating4 }
           />
 
@@ -184,7 +184,7 @@ getRating = ({ target }) => {
             data-testid="5-rating"
             id="rating5"
             type="radio"
-            onClick={ this.getRating }
+            onChange={ this.getRating }
             checked={ rating5 }
           />
           <br />
@@ -217,5 +217,9 @@ getRating = ({ target }) => {
 }
 
 Avaliacao.propTypes = {
-  productId: PropTypes.string.isRequired,
+  productId: PropTypes.string,
+};
+
+Avaliacao.defaultProps = {
+  productId: '',
 };

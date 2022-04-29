@@ -34,6 +34,7 @@ export default class Carrinho extends Component {
                       X
                     </button>
                   </div>
+
                   <button
                     data-testid="product-decrease-quantity"
                     type="button"
@@ -43,16 +44,20 @@ export default class Carrinho extends Component {
                   </button>
                   <span
                     data-testid="shopping-cart-product-quantity"
+                    onChange={ () => console.log(produto.available_quantity) }
                   >
                     {/* qnt total do produto no carrinho */}
                     { cart.filter((p) => p.id === produto.id).length }
+                    <p>{`Quantidade disponibivel: ${produto.available_quantity}`}</p>
                   </span>
+
                   <button
                     type="button"
                     data-testid="product-increase-quantity"
                     onClick={ () => addToCart(produto.id) }
+                    disabled={ (cart.filter((p) => p.id === produto.id).length)
+                      >= produto.available_quantity }
                   >
-                    {' '}
                     +
                   </button>
                 </div>
