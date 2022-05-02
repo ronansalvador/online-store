@@ -76,7 +76,7 @@ class Home extends Component {
             <label htmlFor="InputBusca">
               <input
                 data-testid="query-input"
-                id="InputBusca"
+                className="InputBusca"
                 type="text"
                 onChange={ this.handleInput }
                 value={ query }
@@ -101,10 +101,10 @@ class Home extends Component {
                 alt="Imagem carrinho de compras"
               />
             </Link>
-            <p data-testid="shopping-cart-size" id="length">{ cart.length }</p>
+            <p data-testid="shopping-cart-size" className="length">{ cart.length }</p>
           </div>
         </div>
-        <p data-testid="home-initial-message" id="message">
+        <p data-testid="home-initial-message" className="message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <main>
