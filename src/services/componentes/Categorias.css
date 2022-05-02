@@ -6,15 +6,15 @@
 }
 
 .categories {
-  display: flex;
   align-items: center;
   border: 1px solid black;
+  display: flex;
   padding: 5px;
 }
 
 .categories label {
-  width: 200px;
   display: flex;
+  width: 200px;
 }
 
 .list-categories h1 {

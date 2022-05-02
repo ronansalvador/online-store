@@ -3,10 +3,10 @@
 }
 
 .containerHeader {
-    background-color: var(--gold-yellow);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  align-items: center;
+  background-color: var(--gold-yellow);
+  display: flex;
+  justify-content: space-around;
 }
 
 .cartBtn {
@@ -17,42 +17,42 @@
 .button {
   background-color: var(--blue);
   border: none;
-  padding: 10px;
   border-radius: 5px;
   box-shadow: 0 4px 4px #6666666e;
   cursor: pointer;
+  padding: 10px;
 }
 
 .button:active {
   background-color: var(--dark-blue);
 }
 
-#length {
-  border-radius: 100%;
+.length {
+  align-items: center;
   background-color: var(--blue);
-  height: 25px;
-  width: 25px;
-  padding: 5px;
+  border-radius: 100%;
   display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
+  font-size: 13px;
+  height: 25px;
+  justify-content: center;
+  padding: 5px;
+  width: 25px;
 }
 
-#InputBusca {
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: 3px;
-  box-shadow: 0 4px 4px #6666666e;
-  outline: none;
+.InputBusca {
   border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px #6666666e;
+  margin-right: 3px;
+  outline: none;
+  padding: 10px;
   width: 100%;
 }
 
 .containerHeader form {
-  width: 60%;
   display: flex;
   justify-content: space-evenly;
+  width: 60%;
 }
 
 .containerHeader form label {
@@ -60,15 +60,15 @@
 }
 
 .containerHeader h3 {
-  font-family: monospace;
   color: var(--dark-blue);
+  font-family: monospace;
   font-weight: 700;
 }
 
-#message {
+.message {
   background-color: var(--gold-yellow);
-  text-align: center;
   padding: 5px;
+  text-align: center;
 }
 
 main {
