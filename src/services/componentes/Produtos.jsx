@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './Produtos.css';
 
 class Produtos extends Component {
   render() {
     const { produtos, addToCart } = this.props;
     return (
-      <div>
+      <div className="mainProducts">
         {produtos.map((element) => (
 
           <div
             key={ element.id }
             data-testid="product"
+            className="cardProduct"
           >
-            <h3>
-              {element.title}
-            </h3>
-            {element.shipping.free_shipping
+            <div className="productTitle">
+              <h3>
+                {element.title}
+              </h3>
+            </div>
+            <div className="freeShipping">
+              {element.shipping.free_shipping
               && <p data-testid="free-shipping">Frete Gratis</p>}
+            </div>
             <img
               src={ element.thumbnail }
               alt={ `imagem do produto ${element.title}` }
             />
             <span>
-              {element.price}
+              {`R$ ${element.price}`}
             </span>
             <Link
               to={ `/detalhes/${element.id}` }

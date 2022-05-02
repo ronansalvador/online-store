@@ -1,0 +1,49 @@
+.mainProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 67px;
+}
+
+.cardProduct {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: white;
+}
+
+.productTitle h3 {
+    text-align: center;
+    max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardProduct img {
+    width: 150px;
+}
+
+.productTitle {
+    height: 40px;
+}
+
+.freeShipping {
+    height: 20px;
+}
+
+.cardProduct button {
+    background-color: var(--blue);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px #6666666e;
+  cursor: pointer;
+  margin-top: 5px;
+}

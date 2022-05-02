@@ -70,48 +70,56 @@ class Home extends Component {
     const { addToCart, cart } = this.props;
     return (
       <div>
-        <form>
-          <label htmlFor="InputBusca">
-            <input
-              data-testid="query-input"
-              id="InputBusca"
-              type="text"
-              onChange={ this.handleInput }
-              value={ query }
-            />
-          </label>
-          <button
-            data-testid="query-button"
-            type="button"
-            onClick={ this.getQuery }
-          >
-            Buscar
-          </button>
+        <div className="containerHeader">
+          <h3>TrybeLibre</h3>
+          <form>
+            <label htmlFor="InputBusca">
+              <input
+                data-testid="query-input"
+                id="InputBusca"
+                type="text"
+                onChange={ this.handleInput }
+                value={ query }
+              />
+            </label>
+            <button
+              data-testid="query-button"
+              type="button"
+              onClick={ this.getQuery }
+              className="button"
+            >
+              Buscar
+            </button>
 
-        </form>
+          </form>
+          <div className="cartBtn">
 
-        <Link to="/carrinho" data-testid="shopping-cart-button">
-          <img
-            className="img-cart"
-            src={ carrinho }
-            alt="Imagem carrinho de compras"
-          />
-        </Link>
-        <p data-testid="shopping-cart-size">{ cart.length }</p>
-        <p data-testid="home-initial-message">
+            <Link to="/carrinho" data-testid="shopping-cart-button">
+              <img
+                className="img-cart"
+                src={ carrinho }
+                alt="Imagem carrinho de compras"
+              />
+            </Link>
+            <p data-testid="shopping-cart-size" id="length">{ cart.length }</p>
+          </div>
+        </div>
+        <p data-testid="home-initial-message" id="message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
-        <Categorias
-          RecebeID={ this.getCategoryId } // passa a função getCategoryId como props (RecebeID) - para o component Categorias
-        />
-        {arrayVazio
-          ? <p>Nenhum produto foi encontrado</p>
-          : (
-            <Produtos
-              produtos={ produtos }
-              addToCart={ addToCart }
-            />
-          )}
+        <main>
+          <Categorias
+            RecebeID={ this.getCategoryId }
+          />
+          {arrayVazio
+            ? <p>Nenhum produto foi encontrado</p>
+            : (
+              <Produtos
+                produtos={ produtos }
+                addToCart={ addToCart }
+              />
+            )}
+        </main>
 
       </div>
     );
