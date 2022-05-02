@@ -1,3 +1,76 @@
 .img-cart {
   width: 50px;
 }
+
+.containerHeader {
+    background-color: var(--gold-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cartBtn {
+  display: flex;
+  padding-top: 10px;
+}
+
+.button {
+  background-color: var(--blue);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px #6666666e;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: var(--dark-blue);
+}
+
+#length {
+  border-radius: 100%;
+  background-color: var(--blue);
+  height: 25px;
+  width: 25px;
+  padding: 5px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+#InputBusca {
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 3px;
+  box-shadow: 0 4px 4px #6666666e;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.containerHeader form {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.containerHeader form label {
+  width: 80%;
+}
+
+.containerHeader h3 {
+  font-family: monospace;
+  color: var(--dark-blue);
+  font-weight: 700;
+}
+
+#message {
+  background-color: var(--gold-yellow);
+  text-align: center;
+  padding: 5px;
+}
+
+main {
+  display: flex;
+}

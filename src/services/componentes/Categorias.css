@@ -1,4 +1,22 @@
-.list-caregories {
+.list-categories {
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.categories label {
+  width: 200px;
+  display: flex;
+}
+
+.list-categories h1 {
+  margin-bottom: 10px;
 }

@@ -30,10 +30,10 @@ class Categorias extends Component {
   render() {
     const { categorias } = this.state;
     return (
-      <div className="list-caregories">
+      <div className="list-categories">
         <h1>Categorias</h1>
         {categorias.map((categoria) => (
-          <label key={ categoria.id } htmlFor={ categoria.id } data-testid="category">
+          <div key={ categoria.id } className="categories">
             <input
               type="radio"
               id={ categoria.id }
@@ -41,8 +41,10 @@ class Categorias extends Component {
               name="categorias"
               onChange={ this.getId }
             />
-            {categoria.name}
-          </label>
+            <label htmlFor={ categoria.id } data-testid="category">
+              {categoria.name}
+            </label>
+          </div>
         ))}
       </div>
     );
