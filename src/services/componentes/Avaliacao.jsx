@@ -148,7 +148,7 @@ getRating = ({ target }) => {
               onChange={ this.handleInput }
             />
           </label>
-          <div>
+          <div className="avaliacao_inputs">
 
             <input
               data-testid="1-rating"
@@ -194,6 +194,7 @@ getRating = ({ target }) => {
           <br />
           <textarea
             data-testid="product-detail-evaluation"
+            className="avaliacao_textarea"
             id="comentario"
             placeholder="Deixe seu Comentário"
             value={ comentario }
