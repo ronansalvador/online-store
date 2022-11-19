@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getProductDetails } from '../api';
 import carrinho from '../imagens/carrinho.svg';
 import Avaliacao from '../componentes/Avaliacao';
+import './Details.css';
 
 class Details extends Component {
   constructor() {
@@ -28,24 +29,26 @@ class Details extends Component {
     const { detalhes } = this.state;
     const { addToCart, cart } = this.props;
     return (
-      <div>
-        <Link to="/carrinho" data-testid="shopping-cart-button">
-          <img
-            className="img-cart"
-            src={ carrinho }
-            alt="Imagem carrinho de compras"
-          />
-        </Link>
-        <p data-testid="shopping-cart-size">{ cart.length }</p>
-        <div>
-          <p data-testid="product-detail-name">
+      <div className="details_container">
+        <div className="details_cart">
+          <Link to="/carrinho" data-testid="shopping-cart-button">
+            <img
+              className="img-cart"
+              src={ carrinho }
+              alt="Imagem carrinho de compras"
+            />
+          </Link>
+          <p data-testid="shopping-cart-size">{ cart.length }</p>
+        </div>
+        <div className="details_products">
+          <h2 data-testid="product-detail-name">
             { detalhes.title }
-          </p>
+          </h2>
           {/* {shipping.free_shipping ?
             <p data-testid="free-shipping">Frete Gratis</p> : ''} */}
           <img src={ detalhes.thumbnail } alt={ detalhes.title } />
           <p>
-            { detalhes.price }
+            {`R$: ${detalhes.price}` }
           </p>
           <button
             type="button"

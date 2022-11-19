@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Comentarios from './Comentarios';
+import './Avaliacao.css';
 
 export default class Avaliacao extends Component {
   constructor() {
@@ -133,7 +134,7 @@ getRating = ({ target }) => {
 
     const { productId } = this.props;
     return (
-      <div>
+      <div className="avaliacao">
         <h3>Avaliação</h3>
         <form>
           <label htmlFor="email">
@@ -147,46 +148,48 @@ getRating = ({ target }) => {
               onChange={ this.handleInput }
             />
           </label>
+          <div>
 
-          <input
-            data-testid="1-rating"
-            id="rating1"
-            type="radio"
-            onChange={ this.getRating }
-            checked={ rating1 }
-          />
+            <input
+              data-testid="1-rating"
+              id="rating1"
+              type="radio"
+              onChange={ this.getRating }
+              checked={ rating1 }
+            />
 
-          <input
-            data-testid="2-rating"
-            id="rating2"
-            type="radio"
-            onChange={ this.getRating }
-            checked={ rating2 }
-          />
+            <input
+              data-testid="2-rating"
+              id="rating2"
+              type="radio"
+              onChange={ this.getRating }
+              checked={ rating2 }
+            />
 
-          <input
-            data-testid="3-rating"
-            id="rating3"
-            type="radio"
-            onChange={ this.getRating }
-            checked={ rating3 }
-          />
+            <input
+              data-testid="3-rating"
+              id="rating3"
+              type="radio"
+              onChange={ this.getRating }
+              checked={ rating3 }
+            />
 
-          <input
-            data-testid="4-rating"
-            id="rating4"
-            type="radio"
-            onChange={ this.getRating }
-            checked={ rating4 }
-          />
+            <input
+              data-testid="4-rating"
+              id="rating4"
+              type="radio"
+              onChange={ this.getRating }
+              checked={ rating4 }
+            />
 
-          <input
-            data-testid="5-rating"
-            id="rating5"
-            type="radio"
-            onChange={ this.getRating }
-            checked={ rating5 }
-          />
+            <input
+              data-testid="5-rating"
+              id="rating5"
+              type="radio"
+              onChange={ this.getRating }
+              checked={ rating5 }
+            />
+          </div>
           <br />
           <br />
           <textarea

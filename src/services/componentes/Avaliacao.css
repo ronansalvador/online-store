@@ -1,0 +1,14 @@
+.avaliacao {
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  width: 80%;
+}
+
+.avaliacao form {
+  background-color: red;
+}
