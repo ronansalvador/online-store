@@ -148,8 +148,16 @@ getRating = ({ target }) => {
               onChange={ this.handleInput }
             />
           </label>
+          <br />
+          <h3>Nota</h3>
           <div className="avaliacao_inputs">
-
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+          </div>
+          <div className="avaliacao_inputs">
             <input
               data-testid="1-rating"
               id="rating1"

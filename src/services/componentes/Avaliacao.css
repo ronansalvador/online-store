@@ -40,6 +40,11 @@
   justify-content: center;
 }
 
+.avaliacao_inputs p {
+  font-size: larger;
+  padding: 15px;
+}
+
 .avaliacao_inputs input {
   height: 30px;
   width: 30px;
