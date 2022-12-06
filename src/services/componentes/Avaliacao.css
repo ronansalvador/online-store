@@ -45,6 +45,7 @@
   padding: 15px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .avaliacao_inputs input {
   height: 30px;
   width: 30px;
