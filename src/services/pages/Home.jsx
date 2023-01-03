@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Categorias from '../componentes/Categorias';
 import Produtos from '../componentes/Produtos';
-// import carrinho from '../imagens/carrinho.svg';
+import carrinho from '../imagens/carrinho.svg';
 import './Home.css';
 import { getProductsFromCategoryAndQuery } from '../api';
 
@@ -97,7 +97,7 @@ class Home extends Component {
             <Link to="/carrinho" data-testid="shopping-cart-button">
               <img
                 className="img-cart"
-                src="https://img1.gratispng.com/20171220/skq/shopping-cart-png-5a3a8fc8964401.8796450215137873366155.jpg"
+                src={ carrinho }
                 alt="Imagem carrinho de compras"
               />
             </Link>

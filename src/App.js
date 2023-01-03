@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import Carrinho from './services/pages/Carrinho';
 import Home from './services/pages/Home';
 import Details from './services/pages/Details';
@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Switch>
+          
             <Route
               exact
               path="/"
@@ -103,7 +103,7 @@ class App extends Component {
                 cart={ cart }
               />) }
             />
-          </Switch>
+          
         </div>
       </BrowserRouter>
     );
