@@ -15,6 +15,10 @@ class Produtos extends Component {
             data-testid="product"
             className="cardProduct"
           >
+          <Link
+            to={ `/detalhes/${element.id}` }
+            data-testid="product-detail-link"
+          >
             <div className="productTitle">
               <h3>
                 {element.title}
@@ -24,25 +28,25 @@ class Produtos extends Component {
               {element.shipping.free_shipping
               && <p data-testid="free-shipping">Frete Gratis</p>}
             </div>
-            <img
-              src={ element.thumbnail }
-              alt={ `imagem do produto ${element.title}` }
-            />
-            <span>
-              {`R$ ${element.price}`}
-            </span>
-            <Link
-              to={ `/detalhes/${element.id}` }
-              data-testid="product-detail-link"
-            >
+            <div className='product-details'>
+              <img
+                src={ element.thumbnail }
+                alt={ `imagem do produto ${element.title}` }
+              />
+              <span>
+                {`R$ ${element.price}`}
+              </span>
+          
               Mais detalhes
-            </Link>
-            <button
+
+            </div>
+          </Link>
+          <button
               type="button"
               id={ element.id }
               onClick={ ({ target }) => addToCart(target.id) }
               data-testid="product-add-to-cart"
-            >
+          >
               Adicionar ao carrinho
             </button>
           </div>

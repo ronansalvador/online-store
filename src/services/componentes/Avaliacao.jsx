@@ -141,10 +141,10 @@ getRating = ({ target }) => {
             <h3>Deixe a sua avaliação</h3>
             <label htmlFor="email">
               <input
-                placeholder="e-mail"
+                placeholder="Nome"
                 id="email"
                 data-testid="product-detail-email"
-                type="email"
+                type="text"
                 value={ email }
                 required
                 onChange={ this.handleInput }

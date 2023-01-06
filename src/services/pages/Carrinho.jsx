@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import carrinho from '../imagens/carrinho.svg';
 
 export default class Carrinho extends Component {
   render() {
@@ -19,6 +20,17 @@ export default class Carrinho extends Component {
 
     return (
       <div>
+        <div className="details_cart">
+          <Link to="/carrinho" data-testid="shopping-cart-button">
+            <img
+              className="img-cart"
+              src={ carrinho }
+              alt="Imagem carrinho de compras"
+            />
+          </Link>
+          {(cart.length > 0) ? <p data-testid="shopping-cart-size" className='length'>{ cart.length }</p> : ""}
+          
+        </div>
         {cart.length === 0
           ? <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           : (

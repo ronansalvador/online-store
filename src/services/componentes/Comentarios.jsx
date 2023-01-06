@@ -17,7 +17,7 @@ export default class Comentarios extends Component {
             <div key={ index } className='comentario_card'>
             
               <div className='comentario_avaliacao'>
-              <span>Nota</span>
+              <span>Nota:</span>
               <div className="avaliacao_inputs">
                 <input
                   data-testid="1-rating"

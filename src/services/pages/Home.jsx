@@ -36,7 +36,8 @@ class Home extends Component {
     });
   }
 
-  getQuery = () => { // ação do botão do input (value={query}) para executar a renderização dos ptodutos
+  getQuery = (e) => { // ação do botão do input (value={query}) para executar a renderização dos ptodutos
+    e.preventDefault();
     this.getProdutos();
   }
 
@@ -81,13 +82,13 @@ class Home extends Component {
                 data-testid="query-input"
                 className="InputBusca"
                 type="text"
-                onChange={ this.handleInput }
+                onChange={ (e) => this.handleInput(e) }
                 value={ query }
               />
             </label>
             <button
               data-testid="query-button"
-              type="button"
+              type="submit"
               onClick={ this.getQuery }
               className="button"
             >
