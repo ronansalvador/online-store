@@ -107,7 +107,7 @@ class Home extends Component {
                 alt="Imagem carrinho de compras"
               />
             </Link>
-            <p data-testid="shopping-cart-size" className="length">{ cart.length }</p>
+            { (cart.length > 0) ? <p data-testid="shopping-cart-size" className="length">{ cart.length }</p> : "" }
           </div>
         </div>
       
