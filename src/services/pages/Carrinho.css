@@ -99,3 +99,8 @@
 .cart-empty{
   padding: 20px;
 }
+
+.carrinho-details-cart{
+  justify-content: space-between !important;
+  align-items: center !important;
+}

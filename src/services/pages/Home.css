@@ -61,11 +61,6 @@
   width: 80%;
 }
 
-.containerHeader h3 {
-  color: var(--dark-blue);
-  font-family: monospace;
-  font-weight: 700;
-}
 
 .message {
   background-color: var(--gold-yellow);
@@ -82,3 +77,14 @@ main {
   width: 60%;
   padding: 10px;
 }
+
+.logo {
+  text-decoration: none;
+}
+
+.logo h3 {
+  color: var(--dark-blue);
+  font-family: monospace;
+  font-weight: 700;
+}
+

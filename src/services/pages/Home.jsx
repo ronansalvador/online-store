@@ -74,7 +74,7 @@ class Home extends Component {
     return (
       <div>
         <div className="containerHeader">
-          <h3>Online-Store</h3>
+        <a href='/' className='logo'><h3>Online-Store</h3></a>
           <div className='header_div_form'>
           <form>
             <label htmlFor="InputBusca">

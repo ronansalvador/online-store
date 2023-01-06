@@ -21,7 +21,10 @@ export default class Carrinho extends Component {
 
     return (
       <div className='container-cart'>
-        <div className="details_cart">
+        
+        <div className="details_cart carrinho-details-cart">
+          <a href='/' className='logo'><h3>Online-Store</h3></a>
+        
           <Link to="/carrinho" data-testid="shopping-cart-button">
             <img
               className="img-cart"
