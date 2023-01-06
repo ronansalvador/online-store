@@ -43,6 +43,13 @@ export default class Carrinho extends Component {
           ? <p data-testid="shopping-cart-empty-message" className='cart-empty'> Seu carrinho está vazio </p>
           : (
             <div className='cart-card-product'>
+              <Link
+                  data-testid="checkout-products"
+                  to="/checkout"
+                  className='cart-checkout'
+                  >
+                    Finalizar Compra
+                </Link>
               {unitCart.map((produto, index) => (
                 <div key={ index } className='cart-products' >
                   <div className='cart-product-detail'>
@@ -92,13 +99,7 @@ export default class Carrinho extends Component {
                   </div>
                 </div>
               ))}
-                <Link
-                  data-testid="checkout-products"
-                  to="/checkout"
-                  className='cart-checkout'
-                  >
-                    Finalizar Compra
-                </Link>
+                
             </div>
           )}
       <Footer /> 

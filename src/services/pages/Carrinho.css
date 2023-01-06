@@ -77,6 +77,10 @@
   font-weight: 600;
 }
 
+.cart-button-increase:disabled {
+  background-color: #c6c5c5;
+}
+
 .cart-button-remove {
   border: none;
   background-color: white;
@@ -90,11 +94,15 @@
   box-shadow: 0 4px 4px #6666666e;
   cursor: pointer;
   margin-top: 20px;
-  padding: 10px;
+  padding: 20px;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart-empty{
