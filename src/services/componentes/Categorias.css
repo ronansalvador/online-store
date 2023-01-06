@@ -1,15 +1,16 @@
 .list-categories {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-left: 10px;
   margin-top: 20px;
 }
 
 .categories {
   align-items: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .categories label {
@@ -19,4 +20,26 @@
 
 .list-categories h1 {
   margin-bottom: 10px;
+}
+
+.categories-btn {
+  transition: all .5s ease;
+  color: var(--blue);
+  border: 3px solid rgba(78,149,170,0);
+  font-family: "Montserrat",sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--main);
+  padding: 10px;
+  outline: none;
+  width: 100%;
+  cursor:pointer;
+}
+
+.categories-btn:hover {
+  background-color: var(--blue);
+  color: white
 }

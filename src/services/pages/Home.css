@@ -15,12 +15,13 @@
 }
 
 .button {
-  background-color: var(--blue);
+  background-color: white;
   border: none;
   border-radius: 5px;
   box-shadow: 0 4px 4px #6666666e;
   cursor: pointer;
-  padding: 10px;
+  margin-left: 10px;
+  /* padding: 10px; */
 }
 
 .button:active {
@@ -29,8 +30,9 @@
 
 .length {
   align-items: center;
-  background-color: var(--blue);
-  border-radius: 100%;
+  background-color: var(--red);
+  border-radius: 6px;
+  color: white;
   display: flex;
   font-size: 13px;
   height: 25px;
@@ -51,8 +53,8 @@
 
 .containerHeader form {
   display: flex;
-  justify-content: space-evenly;
-  width: 60%;
+  justify-content: center;
+  /* width: 60%; */
 }
 
 .containerHeader form label {
@@ -73,4 +75,10 @@
 
 main {
   display: flex;
+}
+
+.header_div_form {
+  /* display: flex; */
+  width: 60%;
+  padding: 10px;
 }

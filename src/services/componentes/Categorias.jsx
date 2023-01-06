@@ -34,7 +34,7 @@ class Categorias extends Component {
         <h1>Categorias</h1>
         {categorias.map((categoria) => (
           <div key={ categoria.id } className="categories">
-            <input
+            {/* <input
               type="radio"
               id={ categoria.id }
               value={ categoria.name }
@@ -43,7 +43,23 @@ class Categorias extends Component {
             />
             <label htmlFor={ categoria.id } data-testid="category">
               {categoria.name}
-            </label>
+            </label> */}
+
+            <label
+        htmlFor={ categoria.id }
+        data-testid="category"
+        className="label-side-bar"
+      >
+        <button
+          type="button"
+          name="categorias"
+          id={ categoria.id }
+          onClick={ this.getId  }
+          className="categories-btn"
+        >
+          { categoria.name }
+        </button>
+      </label>
           </div>
         ))}
       </div>

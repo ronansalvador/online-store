@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import Categorias from '../componentes/Categorias';
 import Produtos from '../componentes/Produtos';
 import carrinho from '../imagens/carrinho.svg';
+import search from '../imagens/search.svg';
 import './Home.css';
 import { getProductsFromCategoryAndQuery } from '../api';
+import Footer from '../componentes/Footer';
 
 class Home extends Component {
   constructor() {
@@ -71,7 +73,8 @@ class Home extends Component {
     return (
       <div>
         <div className="containerHeader">
-          <h3>TrybeLibre</h3>
+          <h3>Online-Store</h3>
+          <div className='header_div_form'>
           <form>
             <label htmlFor="InputBusca">
               <input
@@ -88,10 +91,13 @@ class Home extends Component {
               onClick={ this.getQuery }
               className="button"
             >
-              Buscar
-            </button>
-
+              <img src={search} alt='button searsh'/>
+            </button>     
           </form>
+              <p data-testid="home-initial-message" className="message">
+                Digite algum termo de pesquisa ou escolha uma categoria.
+              </p>
+          </div>
           <div className="cartBtn">
 
             <Link to="/carrinho" data-testid="shopping-cart-button">
@@ -104,9 +110,7 @@ class Home extends Component {
             <p data-testid="shopping-cart-size" className="length">{ cart.length }</p>
           </div>
         </div>
-        <p data-testid="home-initial-message" className="message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
+      
         <main>
           <Categorias
             RecebeID={ this.getCategoryId }
@@ -120,6 +124,7 @@ class Home extends Component {
               />
             )}
         </main>
+        <Footer />
 
       </div>
     );

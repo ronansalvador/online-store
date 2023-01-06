@@ -5,28 +5,33 @@ import { getProductDetails } from '../api';
 import carrinho from '../imagens/carrinho.svg';
 import Avaliacao from '../componentes/Avaliacao';
 import './Details.css';
+import Footer from '../componentes/Footer';
 
 class Details extends Component {
   constructor() {
     super();
     this.state = {
       detalhes: {},
+      atributos: []
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const detalhes = await getProductDetails(id);
+    const atributos = detalhes.attributes;
+
     /*  const { shipping } = detalhes;
     console.log(shipping);
     if (shipping.free_shipping) {
       console.log(shipping.free_shipping);
     } */
-    this.setState({ detalhes });
+    this.setState({ detalhes, atributos });
   }
 
   render() {
-    const { detalhes } = this.state;
+    const { detalhes, atributos } = this.state;
+    console.log('detalhes', detalhes);
     const { addToCart, cart } = this.props;
     return (
       <div className="details_container">
@@ -38,7 +43,8 @@ class Details extends Component {
               alt="Imagem carrinho de compras"
             />
           </Link>
-          <p data-testid="shopping-cart-size">{ cart.length }</p>
+          {(cart.length > 0) ? <p data-testid="shopping-cart-size" className='length'>{ cart.length }</p> : ""}
+          
         </div>
         <div className="details_products">
           <h2 data-testid="product-detail-name">
@@ -46,23 +52,34 @@ class Details extends Component {
           </h2>
           {/* {shipping.free_shipping ?
             <p data-testid="free-shipping">Frete Gratis</p> : ''} */}
-          <img src={ detalhes.thumbnail } alt={ detalhes.title } />
-          <p>
-            {`R$: ${detalhes.price}` }
-          </p>
-          <button
-            type="button"
-            id={ detalhes.id }
-            onClick={ ({ target }) => addToCart(target.id) }
-            data-testid="product-detail-add-to-cart"
-          >
-            Adicionar ao carrinho
-          </button>
+          <div className='details-product-description'>
+            <div className='details-product-value'>
+              <img src={ detalhes.thumbnail } alt={ detalhes.title } />
+              <p>
+                {`Valor do produto R$: ${detalhes.price}` }
+              </p>
+              <button
+                type="button"
+                id={ detalhes.id }
+                onClick={ ({ target }) => addToCart(target.id) }
+                data-testid="product-detail-add-to-cart"
+              >
+                Adicionar ao carrinho
+              </button>
+            </div>
+          <div className="details_description">
+            {atributos.map((atribut, index) => (
+              <div key={ index }>
+                <span>{`- ${atribut.name}: ${atribut.value_name}`}</span>
+              </div>
+            ))}
+          </div>
+            </div>
         </div>
         <Avaliacao
           productId={ detalhes.id }
         />
-
+      <Footer />
       </div>
     );
   }

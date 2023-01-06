@@ -135,94 +135,107 @@ getRating = ({ target }) => {
     const { productId } = this.props;
     return (
       <div className="avaliacao">
-        <h3>Avaliação</h3>
-        <form>
-          <label htmlFor="email">
-            <input
-              placeholder="e-mail"
-              id="email"
-              data-testid="product-detail-email"
-              type="email"
-              value={ email }
-              required
+        <h2>Avaliações do produto</h2>
+        <div className='deixe_sua_avaliacao'>
+          <form>
+            <h3>Deixe a sua avaliação</h3>
+            <label htmlFor="email">
+              <input
+                placeholder="e-mail"
+                id="email"
+                data-testid="product-detail-email"
+                type="email"
+                value={ email }
+                required
+                onChange={ this.handleInput }
+              />
+            </label>
+            <h3>Nota</h3>
+            {/* <div className="avaliacao_inputs">
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+            </div> */}
+            <div className='avaliacao_notas'>
+              <div className="avaliacao_inputs">
+                <input
+                  data-testid="1-rating"
+                  id="rating1"
+                  type="radio"
+                  onChange={ this.getRating }
+                  checked={ rating1 }
+                />
+                <label for="rating1">1</label>
+              </div>
+              <div className="avaliacao_inputs">
+              <input
+                data-testid="2-rating"
+                id="rating2"
+                type="radio"
+                onChange={ this.getRating }
+                checked={ rating2 }
+              />
+              <label for="rating2">2</label>
+              </div>
+              <div className="avaliacao_inputs">
+
+              <input
+                data-testid="3-rating"
+                id="rating3"
+                type="radio"
+                onChange={ this.getRating }
+                checked={ rating3 }
+              />
+              <label for="rating3">3</label>
+              </div>
+              <div className="avaliacao_inputs">
+                <input
+                  data-testid="4-rating"
+                  id="rating4"
+                  type="radio"
+                  onChange={ this.getRating }
+                  checked={ rating4 }
+                />
+                <label for="rating4">4</label>
+              </div>
+              <div className="avaliacao_inputs">
+
+              <input
+                data-testid="5-rating"
+                id="rating5"
+                type="radio"
+                onChange={ this.getRating }
+                checked={ rating5 }
+              />
+              <label for="rating5">5</label>
+              </div>
+            </div>
+            <textarea
+              data-testid="product-detail-evaluation"
+              className="avaliacao_textarea"
+              id="comentario"
+              placeholder="Deixe seu Comentário"
+              value={ comentario }
               onChange={ this.handleInput }
             />
-          </label>
-          <br />
-          <h3>Nota</h3>
-          <div className="avaliacao_inputs">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-          </div>
-          <div className="avaliacao_inputs">
-            <input
-              data-testid="1-rating"
-              id="rating1"
-              type="radio"
-              onChange={ this.getRating }
-              checked={ rating1 }
-            />
+            <button
+              data-testid="submit-review-btn"
+              type="button"
+              className='avaliacao_button'
+              onClick={ this.getAvaliation }
+            >
+              Avaliar
+            </button>
 
-            <input
-              data-testid="2-rating"
-              id="rating2"
-              type="radio"
-              onChange={ this.getRating }
-              checked={ rating2 }
-            />
-
-            <input
-              data-testid="3-rating"
-              id="rating3"
-              type="radio"
-              onChange={ this.getRating }
-              checked={ rating3 }
-            />
-
-            <input
-              data-testid="4-rating"
-              id="rating4"
-              type="radio"
-              onChange={ this.getRating }
-              checked={ rating4 }
-            />
-
-            <input
-              data-testid="5-rating"
-              id="rating5"
-              type="radio"
-              onChange={ this.getRating }
-              checked={ rating5 }
-            />
-          </div>
-          <br />
-          <br />
-          <textarea
-            data-testid="product-detail-evaluation"
-            className="avaliacao_textarea"
-            id="comentario"
-            placeholder="Deixe seu Comentário"
-            value={ comentario }
-            onChange={ this.handleInput }
+          </form>
+          <hr className='avaliacao_hr' />
+          <Comentarios
+            productId={ productId }
+            avaliation={ avaliation }
           />
-          <br />
-          <br />
-          <button
-            data-testid="submit-review-btn"
-            type="button"
-            onClick={ this.getAvaliation }
-          >
-            Avaliar
-          </button>
-
-        </form>
-        <Comentarios
-          productId={ productId }
-          avaliation={ avaliation }
-        />
+        </div>
       </div>
     );
   }

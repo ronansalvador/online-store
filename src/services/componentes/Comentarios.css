@@ -1,0 +1,20 @@
+.container_comentarios {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.comentario_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.comentario_avaliacao{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

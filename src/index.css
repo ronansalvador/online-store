@@ -1,9 +1,11 @@
 :root {
   --dark-yellow: #A36315;
-  --main: #FFFAEC;
-  --gold-yellow: #F0A244;
-  --dark-blue: #0D72A3;
-  --blue: #43B7F0;
+  --main: #EBEBEB;
+  --gold-yellow: #FFF159;
+  --dark-blue: #2C51C7;
+  --blue: #3483fa;
+  --red: #DB4712;
+  --green: #5BA851;
 }
 
 html {
