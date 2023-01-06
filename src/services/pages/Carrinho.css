@@ -32,6 +32,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .cart-button-qnt {
@@ -103,4 +104,8 @@
 .carrinho-details-cart{
   justify-content: space-between !important;
   align-items: center !important;
+}
+
+.cart-page {
+  display: flex;
 }
