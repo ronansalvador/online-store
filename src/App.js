@@ -46,7 +46,7 @@ class App extends Component {
     const differentes = cart.filter((item) => item.id !== id);
     this.setState({
       cart: differentes,
-    });
+    }, () => this.setLocalStorage());
   }
 
   removeItem = (id) => { // função que remove do carrinho 1 qtd do produto ao clicar no "-"
@@ -59,7 +59,7 @@ class App extends Component {
     itemCart.splice(0, 1); // splice(0, 1) -> remove 1 elemento do array a partir do indice 0
     this.setState((prevState) => ({
       cart: [...prevState.cart, ...itemCart], // spread do estado anterios + spread do array após o splice
-    }));
+    }), () => this.setLocalStorage());
   }
 
   render() {

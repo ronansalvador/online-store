@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import carrinho from '../imagens/carrinho.svg';
+import './Carrinho.css'
 
 export default class Carrinho extends Component {
   render() {
@@ -19,7 +20,7 @@ export default class Carrinho extends Component {
     });
 
     return (
-      <div>
+      <div className='container-cart'>
         <div className="details_cart">
           <Link to="/carrinho" data-testid="shopping-cart-button">
             <img
@@ -34,44 +35,54 @@ export default class Carrinho extends Component {
         {cart.length === 0
           ? <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           : (
-            <div>
+            <div className='cart-card-product'>
               {unitCart.map((produto, index) => (
-                <div key={ index }>
-                  <div>
+                <div key={ index } className='cart-products' >
+                  <div className='cart-product-detail'>
                     <h3 data-testid="shopping-cart-product-name">{produto.title}</h3>
+                    <img
+                      src={ produto.thumbnail }
+                      alt={ `imagem do produto ${produto.title}` }
+                    />
                     <p>{`Quantidade disponibivel: ${produto.available_quantity}`}</p>
+                    
+                    <div className='cart-button-qnt'>
+                      <button
+                        data-testid="product-decrease-quantity"
+                        type="button"
+                        onClick={ () => removeItem(produto.id) }
+                        className='cart-button-decrease'
+                      >
+                        -
+                      </button>
+                      <p
+                        data-testid="shopping-cart-product-quantity"
+                        onChange={ () => console.log(produto.available_quantity) }
+                      >
+                        {/* qnt total do produto no carrinho */}
+                        { cart.filter((p) => p.id === produto.id).length }
+                      </p>
+
+                      <button
+                        type="button"
+                        data-testid="product-increase-quantity"
+                        onClick={ () => addToCart(produto.id) }
+                        className='cart-button-increase'
+                        disabled={ (cart.filter((p) => p.id === produto.id).length)
+                          >= produto.available_quantity }
+                      >
+                        +
+                      </button>
+                      
+                    </div>
                     <button
                       type="button"
                       onClick={ () => removeAllItens(produto.id) }
+                      className='cart-button-remove'
                     >
-                      X
+                      Remover Produto
                     </button>
                   </div>
-
-                  <button
-                    data-testid="product-decrease-quantity"
-                    type="button"
-                    onClick={ () => removeItem(produto.id) }
-                  >
-                    -
-                  </button>
-                  <span
-                    data-testid="shopping-cart-product-quantity"
-                    onChange={ () => console.log(produto.available_quantity) }
-                  >
-                    {/* qnt total do produto no carrinho */}
-                    { cart.filter((p) => p.id === produto.id).length }
-                  </span>
-
-                  <button
-                    type="button"
-                    data-testid="product-increase-quantity"
-                    onClick={ () => addToCart(produto.id) }
-                    disabled={ (cart.filter((p) => p.id === produto.id).length)
-                      >= produto.available_quantity }
-                  >
-                    +
-                  </button>
                 </div>
               ))}
             </div>
@@ -79,6 +90,7 @@ export default class Carrinho extends Component {
         <Link
           data-testid="checkout-products"
           to="/checkout"
+          className='cart-checkout'
         >
           Finalizar Compra
         </Link>
