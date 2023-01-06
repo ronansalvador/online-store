@@ -95,3 +95,7 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+.cart-empty{
+  padding: 20px;
+}

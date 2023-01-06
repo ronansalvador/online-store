@@ -33,7 +33,7 @@ export default class Carrinho extends Component {
           
         </div>
         {cart.length === 0
-          ? <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
+          ? <p data-testid="shopping-cart-empty-message" className='cart-empty'> Seu carrinho está vazio </p>
           : (
             <div className='cart-card-product'>
               {unitCart.map((produto, index) => (
