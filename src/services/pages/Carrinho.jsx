@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import carrinho from '../imagens/carrinho.svg';
 import './Carrinho.css'
+import Footer from '../componentes/Footer';
 
 export default class Carrinho extends Component {
   render() {
@@ -97,7 +98,7 @@ export default class Carrinho extends Component {
                 </Link>
             </div>
           )}
-       
+      <Footer /> 
       </div>
     );
   }
