@@ -85,15 +85,16 @@ export default class Carrinho extends Component {
                   </div>
                 </div>
               ))}
+                <Link
+                  data-testid="checkout-products"
+                  to="/checkout"
+                  className='cart-checkout'
+                  >
+                    Finalizar Compra
+                </Link>
             </div>
           )}
-        <Link
-          data-testid="checkout-products"
-          to="/checkout"
-          className='cart-checkout'
-        >
-          Finalizar Compra
-        </Link>
+       
       </div>
     );
   }
