@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../componentes/Input';
+import { Link } from 'react-router-dom';
 
 export default class Checkout extends Component {
   constructor() {
@@ -38,6 +39,22 @@ export default class Checkout extends Component {
 
     return (
       <div>
+          <div className="details_cart carrinho-details-cart">
+          <a href='/' className='logo'><h3>Online-Store</h3></a>
+          <div className='cart-page'>
+
+          {/* <Link to="/carrinho" data-testid="shopping-cart-button">
+            <img
+              className="img-cart"
+              src={ carrinho }
+              alt="Imagem carrinho de compras"
+            />
+          </Link> */}
+          {/* {(cart.length > 0) ? <p data-testid="shopping-cart-size" className='length'>{ cart.length }</p> : ""} */}
+          </div>
+        
+          
+        </div>
         <h3>Checkout</h3>
         {
           cart.map((e, index) => (

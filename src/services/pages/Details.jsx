@@ -35,7 +35,10 @@ class Details extends Component {
     const { addToCart, cart } = this.props;
     return (
       <div className="details_container">
-        <div className="details_cart">
+      <div className="details_cart carrinho-details-cart">
+          <a href='/' className='logo'><h3>Online-Store</h3></a>
+          <div className='cart-page'>
+
           <Link to="/carrinho" data-testid="shopping-cart-button">
             <img
               className="img-cart"
@@ -44,6 +47,8 @@ class Details extends Component {
             />
           </Link>
           {(cart.length > 0) ? <p data-testid="shopping-cart-size" className='length'>{ cart.length }</p> : ""}
+          </div>
+        
           
         </div>
         <div className="details_products">

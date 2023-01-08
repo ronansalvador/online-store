@@ -8,7 +8,14 @@ import Footer from '../componentes/Footer';
 export default class Carrinho extends Component {
   render() {
     const { cart, addToCart, removeItem, removeAllItens } = this.props;
-    const unitCart = [...new Set(cart)]; // remove itens duplicados do array
+    const unitCart = []; // remove itens duplicados do array
+    const mySet = new Set();
+    console.log(cart);
+    cart.forEach((item) => mySet.add(item.id));
+    // console.log(teste);
+    for (const item of mySet) {
+      cart.find((el) => item === el.id && unitCart.push(el));
+    }
     const ONE = -1;
     unitCart.sort((a, b) => { // ordem decrescente dos produtos no carrinho
       if (a.title < b.title) {
@@ -19,6 +26,7 @@ export default class Carrinho extends Component {
       }
       return 0;
     });
+    console.log(unitCart);
 
     return (
       <div className='container-cart'>
@@ -89,6 +97,7 @@ export default class Carrinho extends Component {
                       </button>
                       
                     </div>
+                    <p>{`Total: R$ ${produto.price * (cart.filter((p) => p.id === produto.id).length)}`}</p>
                     <button
                       type="button"
                       onClick={ () => removeAllItens(produto.id) }
