@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../componentes/Input';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default class Checkout extends Component {
   constructor() {
@@ -13,7 +13,26 @@ export default class Checkout extends Component {
       phone: '',
       cep: '',
       address: '',
+      cidade: '',
+      estado: '',
+      numero: '',
+      complemento: ''
     };
+  }
+
+  getCEP = async () => {
+    const { cep } = this.state;
+    console.log(cep);
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+    const response = await fetch(url);
+    const detalhes = await response.json();
+    console.log('detalhes', detalhes);
+    this.setState({
+      address: detalhes.logradouro,
+      cidade: detalhes.localidade,
+      estado: detalhes.uf,
+    })
+    return detalhes; 
   }
 
   handleInput=({ target }) => {
@@ -21,6 +40,7 @@ export default class Checkout extends Component {
     this.setState({
       [name]: value,
     });
+    
   }
 
   render() {
@@ -31,6 +51,10 @@ export default class Checkout extends Component {
       phone,
       cep,
       address,
+      cidade,
+      estado,
+      numero,
+      complemento,
     } = this.state;
     const { cart } = this.props;
     const price = cart.map((e) => e.price);
@@ -102,11 +126,40 @@ export default class Checkout extends Component {
           value={ cep }
           handleOnchange={ this.handleInput }
         />
+        <button type='button' onClick={this.getCEP}>buscar</button>
         <Input
           type="text"
           name="address"
           placeHolder="Endereço"
           value={ address }
+          handleOnchange={ this.handleInput }
+        />
+        <Input
+          type="text"
+          name="cidade"
+          placeHolder="Cidade"
+          value={ cidade }
+          handleOnchange={ this.handleInput }
+        />
+        <Input
+          type="text"
+          name="estado"
+          placeHolder="UF"
+          value={ estado }
+          handleOnchange={ this.handleInput }
+        />
+        <Input
+          type="number"
+          name="numero"
+          placeHolder="Numero"
+          value={ numero }
+          handleOnchange={ this.handleInput }
+        />
+           <Input
+          type="text"
+          name="complemento"
+          placeHolder="Complemento"
+          value={ complemento }
           handleOnchange={ this.handleInput }
         />
 
